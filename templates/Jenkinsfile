@@ -1,1 +1,23 @@
 
+node(master) {
+  stage('Checkout') {
+    dir('checkout') {
+      stage_checkout()
+      stash name: 'checkout', includes: '**', useDefaultExcludes: false
+    }
+  }
+  stage('Build') {
+    dir('build') {
+      unstash 'checkout'
+      stage_build()
+      stash name: 'build', includes: 'build/classes/**'
+    }
+  }
+  stage('Test') {
+    dir('test') {
+      unstash 'checkout'
+      unstash 'build'
+      stage_test()
+    }
+  }  
+}
