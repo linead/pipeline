@@ -1,3 +1,7 @@
+@merge jte {
+  allow_scm_jenkinsfile = false
+}
+
 stages {
   stage_checkout {
     code_checkout
