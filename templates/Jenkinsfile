@@ -13,11 +13,26 @@ node() {
       stash name: 'build', includes: 'build/classes/**'
     }
   }
-  stage('Test') {
-    dir('test') {
-      unstash 'checkout'
-      unstash 'build'
-      stage_test()
+  
+  parallel(
+    'Test': {
+      stage('Test') {
+        dir('test') {
+          unstash 'checkout'
+          unstash 'build'
+          stage_test()
+        }
+      }       
+    },
+    
+    'Quality Check': {
+      stage('Quality Check') {
+        dir('quality-check') {
+          unstash 'checkout'
+          unstash 'build'
+          stage_quality_check()
+        }
+      }        
     }
-  }  
+  ) 
 }
