@@ -1,5 +1,5 @@
 
-node(master) {
+node() {
   stage('Checkout') {
     dir('checkout') {
       stage_checkout()
