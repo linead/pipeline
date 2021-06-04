@@ -12,6 +12,9 @@ stages {
   stage_test {
     code_test
   }
+  stage_quality_check {
+    quality_check
+  }
 }
 
 libraries {
