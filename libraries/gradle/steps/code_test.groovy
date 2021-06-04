@@ -7,5 +7,6 @@ void call() {
     script: "gradlew test"
     )
   junit 'build/test-results/test/**/TEST-*.xml'
+  stash name: 'test-results', includes: 'build/test-results/**'
   junit 'build/test-results/test/**/TEST-*.xml'
 }
