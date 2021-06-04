@@ -1,12 +1,12 @@
 stages {
   stage_checkout {
-    checkout
+    code_checkout
   }
   stage_build {
-    build
+    code_build
   }
   stage_test {
-    test
+    code_test
   }
 }
 
