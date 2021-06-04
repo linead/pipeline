@@ -2,7 +2,7 @@ package gradle
 
 void call() {
   println "Testing the code"
-  sh(
+  bat(
     label: "Run gradlew tasks 'test'",
     script: "gradlew test"
     )
