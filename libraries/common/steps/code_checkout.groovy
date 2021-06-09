@@ -1,6 +1,6 @@
 package common
 
 void call() {
- // deleteDir()
- // checkout(scm)
+ deleteDir()
+ checkout(scm)
 }
